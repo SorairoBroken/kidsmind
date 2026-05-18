@@ -1,0 +1,527 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variables de Kid's Mind para fácil edición */
+:root {
+  --blanco: #fdfefd;
+  --rosado: #f7b3aa;
+  --rojo: #de545a;
+  --amarillo: #f4c033;
+  --azul: #3469af;
+  --texto: #333333;
+}
+
+/* Fuente y colores básicos */
+body {
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--texto);
+  position: relative;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--blanco);
+}
+
+/* Fondo con opacidad */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Asegúrate de que la imagen exista en tu carpeta o usa un color sólido si no la tienes aún */
+  background: url("imagenes/Fondo.png") no-repeat center center fixed;
+  background-size: cover;
+  opacity: 0.25;
+  z-index: -1;
+}
+
+/* Menú de navegación con el Azul de confianza */
+.navbar {
+  background-color: var(--azul);
+  color: var(--blanco);
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar-container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* Ajuste para que todos los enlaces de la navegación estén en negrita */
+.navbar a, .nav-links a {
+    font-weight: bold !important; /* El !important asegura que se aplique sobre cualquier otro estilo anterior */
+    transition: color 0.3s ease; /* Mantiene la suavidad si cambia de color al pasar el cursor */
+}
+
+.logo {
+  font-size: 1.8em;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: -1px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  border-radius: 20px; /* Formas redondeadas de la marca */
+}
+
+/* Hover con el Rojo amigable */
+.nav-links a:hover {
+  background-color: var(--rojo);
+  color: #fff;
+}
+
+/* Banner Principal */
+.banner {
+  color: var(--azul);
+  height: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.banner img {
+  width: 25%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 50%; /* Estilo circular para el logo/cerebro */
+  border: 5px solid var(--amarillo); /* Borde amarillo estimulante */
+  padding: 10px;
+  background: white;
+  margin-bottom: 20px;
+}
+
+.banner h1 {
+    font-size: 3rem;
+    color: var(--rojo);
+    margin-bottom: 10px;
+}
+
+/* --- Sección Sobre Nosotros (About) --- */
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 10%;
+  background-color: rgba(255, 255, 255, 0.8);
+  scroll-margin-top: 80px;
+  min-height: 400px;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 30px; /* Bordes muy redondeados para niños */
+  box-shadow: 10px 10px 0px var(--rosado); /* Sombra decorativa */
+}
+
+.about-content {
+  max-width: 600px;
+}
+
+.about-content h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: var(--azul);
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Sección de Dimensiones / Actividades (Para niños) */
+.dimensions-section {
+    padding: 60px 20px;
+    scroll-margin-top: 80px;
+}
+
+.dimensions-section h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 40px;
+    color: var(--rojo); /* Título en rojo para que sea más llamativo para niños */
+}
+
+.dimensions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.dimension-card {
+    background-color: var(--blanco);
+    padding: 35px;
+    border-radius: 40px; /* Más redondeado aún */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto rebote infantil */
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    border: 4px solid transparent; /* Borde más grueso */
+}
+
+/* Efectos para las tarjetas de Dimensiones */
+.dimensiones-container .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+    /* Aseguramos que el contenido interno esté bien distribuido */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dimensiones-container .card:hover {
+    transform: scale(1.1); /* Un crecimiento un poco mayor por ser elementos clave */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Sombra más fuerte para resaltar sobre el fondo */
+    z-index: 5;
+    cursor: pointer;
+}
+
+.dimensiones-container .card h3 {
+    margin-bottom: 10px;
+}
+
+.dimensiones-container .card p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* Modificación: Solo crecimiento recto para la tarjeta */
+.dimension-card:hover {
+    transform: scale(1.05); /* Crece un 5% de forma equilibrada */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Sombra más profunda al elevarse */
+}
+
+/* Animación de los botones (Se mantienen independientes) */
+.dimension-card button {
+    transition: transform 0.3s ease-in-out;
+}
+
+.dimension-card button:hover {
+    transform: scale(1.15) !important; /* El botón crece más que la tarjeta para resaltar */
+}
+
+/* Colores de borde específicos para diferenciar por dimensión */
+.card-cognitiva { border-color: var(--amarillo); }
+.card-motriz { border-color: var(--rosado); }
+.card-socioemocional { border-color: var(--rojo); }
+
+.dimension-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--azul);
+}
+
+/* Sección de Servicios / Soluciones Comvmerciales */
+.services {
+    padding: 80px 10%; /* Da espacio suficiente a los lados para que no se pierda al agrandar */
+    background-color: rgba(240, 244, 248, 0.9);
+    border-top: 2px solid var(--azul);
+    overflow: hidden; /* Evita que el crecimiento cree barras de desplazamiento */
+}
+
+.services h2 {
+    text-align: center;
+    color: var(--azul);
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.services-container {
+    display: grid;
+    /* Esto asegura que las columnas se centren y no se peguen a la izquierda */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 320px)); 
+    gap: 40px; 
+    justify-content: center; /* CENTRA las tarjetas en la página */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-item {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: center; /* Cambiamos a centrado para que el crecimiento sea armónico */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-bottom: 8px solid var(--azul); /* Cambiamos a borde inferior como tenías en el HTML */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.service-item:hover {
+    transform: scale(1.05); /* Crece hacia afuera desde el centro */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    z-index: 10; /* Asegura que la tarjeta que crece se ponga "encima" de las demás */
+}
+
+.service-item h3 {
+    color: var(--azul);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.service-item p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Colores de borde específicos para cada tipo (opcional) */
+.item-cognitivo { border-color: var(--amarillo); }
+.item-motriz { border-color: var(--rosado); }
+.item-emocional { border-color: var(--rojo); }
+
+/* Animación para el botón de Solicitar Información */
+.btn-info {
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.btn-info:hover {
+    transform: scale(1.15) !important; /* Crece un 15%, igual que los botones de juego */
+    background-color: var(--rojo) !important; /* Opcional: cambia a rojo al pasar el cursor para mayor dinamismo */
+}
+
+/* Base para los contenedores de los iconos de redes */
+.footer-socials a {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* Animación de crecimiento y cambio de color para Facebook e Instagram */
+.social-animate:hover {
+    transform: scale(1.15) !important; /* Mantiene el crecimiento del 15% */
+    color: #de545a !important;        /* Cambia exactamente al color solicitado */
+}
+
+/* WhatsApp se mantiene estático, cambia a su color verde corporativo */
+.social-static:hover {
+    transform: none !important;
+    color: #de545a  !important; 
+}
+
+/* --- BOTÓN HAMBURGUESA --- */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  
+  .nav-links {
+    display: none; /* ocultar menú por defecto */
+    flex-direction: column;
+    background-color: #2f50a8;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  .nav-links.active {
+    display: flex; /* mostrar menú al hacer clic */
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+}
+
+/* --- Ajuste de posición del botón hamburguesa --- */
+.navbar-container {
+  display: flex;
+  justify-content: space-between; /* logo izquierda, hamburguesa derecha */
+  align-items: center;
+  width: 90%;
+  margin: auto;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block !important; /* Fuerza a que aparezca en móviles */
+  }
+
+  .nav-links {
+    display: none !important; /* Oculta el menú horizontal por defecto en móvil */
+    flex-direction: column;
+    background-color: #3469af; /* Lo unificamos con tu color de marca */
+    position: absolute;
+    top: 55px; /* Ajusta según el alto de tu barra */
+    right: 5%;
+    border-radius: 15px; /* Bordes suaves para mantener la estética infantil */
+    padding: 20px;
+    width: 200px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    z-index: 100;
+  }
+
+  /* Cuando el JS activa el menú */
+  .nav-links.active {
+    display: flex !important; 
+  }
+
+  .nav-links li {
+    margin: 12px 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  /* ... tus otros estilos de celular ... */
+
+  /* Forzar a todas las imágenes dentro de las secciones a adaptarse */
+  section img, 
+  div img,
+  .main-container img {
+    width: 65% !important; /* Cambia el tamaño al 65% de la pantalla del celular */
+    max-width: 250px !important; /* Evita que se vuelvan gigantes */
+    min-width: 180px !important; /* Evita que se vuelvan miniaturas */
+    height: auto !important; /* Mantiene la proporción */
+    margin: 15px auto !important; /* Las centra */
+    display: block !important;
+  }
+
+  /* Forzar a los contenedores a ponerse en vertical (uno abajo del otro) */
+  section div, 
+  section [style*="display: flex"],
+  section [style*="grid-template-columns"] {
+    flex-direction: column !important;
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+  }
+}
+
+    .about {
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
+        height: auto;
+    }
+
+    .about-image {
+        margin-bottom: 20px;
+    }
+
+    .about-image img {
+    width: 85% !important; /* Controla qué tan ancha se ve en la pantalla del celular */
+    max-width: 320px !important; /* Evita que crezca demasiado en pantallas medianas */
+    height: auto !important; /* Mantiene la proporción original para que no se deforme */
+    display: inline-block;
+}
+    .about-content {
+        margin-left: 0;
+    }
+
+    .footer p {
+        font-size: 0.8em;
+    }
+
+    /* --- CENTRAR DIMENSIONES EN CELULARES --- */
+@media (max-width: 768px) {
+    /* Forzamos a que el contenedor principal centre sus elementos hijos */
+    .dimensions-section, 
+    .dimensions-grid,
+    #dimensiones {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important; /* Centra las tarjetas horizontalmente */
+        justify-content: center !important;
+        padding-left: 10% !important; /* Asegura márgenes internos simétricos */
+        padding-right: 10% !important;
+        width: 100% !important;
+    }
+
+    /* Ajuste específico para cada cuadro de texto o tarjeta de dimensión */
+    .dimension-card,
+    .card-cognitiva,
+    .card-motriz,
+    .card-socioemocional {
+        margin: 0 auto 20px auto !important; /* El 'auto' a los lados fuerza el centrado absoluto */
+        width: 100% !important; /* Ocupa el ancho disponible del contenedor */
+        max-width: 320px !important; /* Evita que las tarjetas se estiren demasiado hacia los lados */
+        text-align: center !important; /* Centra el título y los textos internos */
+        box-sizing: border-box !important; /* Evita que los bordes rompan el tamaño */
+    }
+}
+
+/* --- COMPORTAMIENTO DE LISTAS EN "CONFIANZA PARA ADULTOS" --- */
+@media (max-width: 768px) {
+
+  /* 1. Forzamos a que la sección de adultos y su contenedor se centren en celular */
+  .parents, 
+  #padres {
+    text-align: center !important;
+    padding: 40px 5% !important; /* Ajuste de aire para pantallas pequeñas */
+  }
+
+  /* 2. Aseguramos que el contenedor del texto mantenga el bloque al centro */
+  #padres > div {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  /* 3. ¡La clave! Forzamos a que ÚNICAMENTE el bloque de la tabla interna 
+     y sus textos se alineen a la izquierda de forma compacta */
+  #padres [style*="display: table"] {
+    margin: 20px auto 0 auto !important; /* Centra el bloque completo de la lista en la pantalla */
+    max-width: 320px !important; /* Evita que el texto se estire demasiado hacia los bordes */
+  }
+
+  #padres [style*="display: table-cell"] {
+    text-align: left !important; /* Fuerza a que cada renglón de texto mire a la izquierda */
+  }
+}
